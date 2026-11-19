@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Coy — Discover Tab
+
+A mobile-first, swipe-based **Discover** tab built as a standalone Next.js + SQLite app for the Coy SDE Intern Assignment.
+
+## Features
+- **Mobile-first UI** matching Coy's design language, with a blank **Home** tab and functional **Discover** tab.
+- **32 seeded profiles** (auto-seeded into SQLite on first run), with 10 profiles pre-configured to have liked the current user for demoing matches.
+- **Swipe experience:** Drag gestures on mobile, Like/Pass buttons on desktop, smooth Framer Motion animations, and an empty state when the feed is exhausted.
+- **Privacy-first matching:** The `liked_me` flag is strictly server-side and never returned by `/api/feed` or `/api/swipe` on a pass/one-sided like. Mutual interest is only revealed when both users like each other.
+- **Full persistence:** Swipes and matches persist across page reloads via SQLite (`better-sqlite3`), with database-level uniqueness preventing duplicate swipes.
+
+## Tech Stack
+- **Frontend:** Next.js (App Router), React, Tailwind CSS, Framer Motion, Lucide Icons
+- **Backend:** Next.js API Routes (`GET /api/feed`, `POST /api/swipe`, `GET /api/matches`)
+- **Database:** SQLite (`better-sqlite3`)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
